@@ -1,6 +1,7 @@
 package cn.itcast.web.servlet;
 
 import cn.itcast.service.UserService;
+import cn.itcast.service.impl.MessageServiceImpl;
 import cn.itcast.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -10,17 +11,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/delSelectedServlet")
-public class DelSelectedServlet extends HttpServlet {
+@WebServlet("/delMessageServlet")
+public class DelMessageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //1.获取所有id
-        String[] ids = request.getParameterValues("uid");
+        //1.获取id
+        String id = request.getParameter("id");
         //2.调用service删除
-        UserService service = new UserServiceImpl();
-        service.delSelectedUser(ids);
+//        UserService service = new UserServiceImpl();
+        MessageServiceImpl service = new MessageServiceImpl();
+        service.deleteMessage(id);    //注意一个点,一自动在dao层接口实现默认传入的就是String类型的
 
-        //3.跳转查询所有Servlet
-        response.sendRedirect(request.getContextPath()+"/findUserByPageServlet");
+        //3.跳转到查询所有Servlet
+        response.sendRedirect(request.getContextPath()+"/findMessageByPageServlet");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

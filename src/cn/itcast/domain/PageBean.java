@@ -9,8 +9,21 @@ public class PageBean<T> {
     private int totalCount; // 总记录数
     private int totalPage ; // 总页码
     private List<T> list ; // 每页的数据
+//    private List<User> userNameList ;不对
+    private List<String> userNameList;
+
     private int currentPage ; //当前页码
     private int rows;//每页显示的记录数
+
+    public PageBean() {
+    }
+
+    public List<String> getUserNameList() {
+        return userNameList;
+    }
+    public void setUserNameList(List<String> userNameList) {
+        this.userNameList = userNameList;
+    }
 
     public int getTotalCount() {
         return totalCount;
@@ -20,6 +33,7 @@ public class PageBean<T> {
         this.totalCount = totalCount;
     }
 
+
     public int getTotalPage() {
         return totalPage;
     }
@@ -27,6 +41,7 @@ public class PageBean<T> {
     public void setTotalPage(int totalPage) {
         this.totalPage = totalPage;
     }
+
 
     public List<T> getList() {
         return list;
@@ -36,6 +51,7 @@ public class PageBean<T> {
         this.list = list;
     }
 
+
     public int getCurrentPage() {
         return currentPage;
     }
@@ -43,6 +59,7 @@ public class PageBean<T> {
     public void setCurrentPage(int currentPage) {
         this.currentPage = currentPage;
     }
+
 
     public int getRows() {
         return rows;
@@ -52,12 +69,14 @@ public class PageBean<T> {
         this.rows = rows;
     }
 
+
     @Override
     public String toString() {
         return "PageBean{" +
                 "totalCount=" + totalCount +
                 ", totalPage=" + totalPage +
                 ", list=" + list +
+                ", userNameList=" + userNameList +
                 ", currentPage=" + currentPage +
                 ", rows=" + rows +
                 '}';

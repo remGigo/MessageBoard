@@ -21,7 +21,7 @@ public interface UserDao {
 
     User findById(int i);
 
-    void update(User user);
+//    void update(User user);
 
     /**
      * 查询总记录数

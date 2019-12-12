@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -21,10 +22,10 @@
 <body>
 
 
-  <div >${user.name},欢迎您</div>
+  <div >${user.username},欢迎您</div>
   <div align="center">
     <a
-            href="${pageContext.request.contextPath}/findUserByPageServlet" style="text-decoration:none;font-size:33px">查询所有留言
+            href="${pageContext.request.contextPath}/findMessageByPageServlet" style="text-decoration:none;font-size:33px">查询所有留言
 <%--            href="${pageContext.request.contextPath}/userListServlet" style="text-decoration:none;font-size:33px">查询所有留言--%>
     </a>
   </div>

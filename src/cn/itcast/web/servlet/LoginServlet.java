@@ -27,6 +27,9 @@ public class LoginServlet extends HttpServlet {
 
         //3.验证码校验
         HttpSession session = request.getSession();
+
+//        session.setAttribute("username",request.getParameter("username"));后面有把用户数据存入session的
+
         String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
         session.removeAttribute("CHECKCODE_SERVER");//确保验证码一次性
         if(checkcode_server!=null && !checkcode_server.equalsIgnoreCase(verifycode)){
@@ -39,6 +42,8 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+
+        //来了老弟
         Map<String, String[]> map = request.getParameterMap();
         //4.封装User对象
         User user = new User();
@@ -50,14 +55,17 @@ public class LoginServlet extends HttpServlet {
             e.printStackTrace();
         }
 
+
         //5.调用Service查询
         UserService service = new UserServiceImpl();
         User loginUser = service.login(user);
+
         //6.判断是否登录成功
         if(loginUser != null){
             //登录成功
             //将用户存入session
             session.setAttribute("user",loginUser);
+
             //跳转页面
             response.sendRedirect(request.getContextPath()+"/index.jsp");
         }else{
@@ -68,7 +76,6 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/login.jsp").forward(request,response);
 
         }
-
 
 
 

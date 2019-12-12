@@ -1,6 +1,7 @@
 package cn.itcast.dao.impl;
 
 import cn.itcast.dao.UserDao;
+import cn.itcast.domain.Message;
 import cn.itcast.domain.User;
 import cn.itcast.util.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -40,11 +41,16 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void add(User user) {
-        //1.定义sql
-        String sql = "insert into user values(null,?,?,?,?,?,?,null,null)";
-        //2.执行sql
-        template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail());
+
     }
+
+//    @Override
+//    public void add(Message message) {
+//        //1.定义sql
+//        String sql = "insert into message values(null,?,)";
+//        //2.执行sql
+//        template.update(sql, message.getId(),message.getMessage(),message.getUser_id());
+//    }
 
     @Override
     public void delete(int id) {
@@ -60,11 +66,11 @@ public class UserDaoImpl implements UserDao {
         return template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), id);
     }
 
-    @Override
-    public void update(User user) {
-        String sql = "update user set name = ?,gender = ? ,age = ? , address = ? , qq = ?, email = ? where id = ?";
-        template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail(), user.getId());
-    }
+//    @Override
+//    public void update(User user) {
+//        String sql = "update user set name = ?,gender = ? ,age = ? , address = ? , qq = ?, email = ? where id = ?";
+//        template.update(sql, user.getName(), user.getGender(), user.getAge(), user.getAddress(), user.getQq(), user.getEmail(), user.getId());
+//    }
 
     @Override
     public int findTotalCount(Map<String, String[]> condition) {

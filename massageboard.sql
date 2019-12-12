@@ -1,14 +1,34 @@
-CREATE DATABASE day17; -- 创建数据库
-USE day17; 			   -- 使用数据库
-CREATE TABLE USER(   -- 创建表
+CREATE DATABASE messageboard
+USE messageboard
+
+
+CREATE TABLE USER(
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	NAME VARCHAR(20) NOT NULL,
-	gender VARCHAR(5),
-	age INT,
-	address VARCHAR(32),
-	qq	VARCHAR(20),
-	email VARCHAR(50)
+	username VARCHAR(32) NOT NULL UNIQUE,
+	PASSWORD VARCHAR(32) NOT NULL
+
 );
 
-INSERT  INTO `user`(`id`,`name`,`gender`,`age`,`address`,`qq`,`email`) VALUES (1,'张三','男',13,'陕西','12345','zhangsan@itcast.cn');
-INSERT  INTO `user`(`id`,`name`,`gender`,`age`,`address`,`qq`,`email`) VALUES (NULL,'李四','女',15,'北京','88888','ls@itcast.cn');
+CREATE TABLE message(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	message VARCHAR(1024),
+	user_id INT,
+	CONSTRAINT fk_did FOREIGN KEY (user_id) REFERENCES USER(id)
+);
+
+
+SELECT * FROM USER;
+SELECT * FROM message;
+
+INSERT INTO USER VALUES(1,'curry','111');
+INSERT INTO USER VALUES(2,'kevin','222');
+INSERT INTO USER VALUES(3,'klay','333');
+INSERT INTO USER VALUES(4,'james','444');
+INSERT INTO USER VALUES(5,'harden','555');
+
+INSERT INTO message VALUES(NULL,'不仅三分准，扣篮也残暴',1);
+INSERT INTO message VALUES(NULL,'下赛季死神不会缺席',2);
+INSERT INTO message VALUES(NULL,'佛光普照',3);
+INSERT INTO message VALUES(NULL,'湖人***',4);
+INSERT INTO message VALUES(NULL,'举手也没用，这个规我要定了',5);
+INSERT INTO message VALUES(NULL,'欧文是我好朋友',2);
