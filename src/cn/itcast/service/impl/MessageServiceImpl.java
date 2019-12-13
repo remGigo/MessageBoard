@@ -43,7 +43,7 @@ public class MessageServiceImpl implements MessageService {
             currentPage = 1;
         }
         //1.创建空的PageBean对象
-        PageBean<MessageToShow> pb = new PageBean<MessageToShow>();
+        PageBean<MessageToShow> pb = new PageBean<>();
         //2.设置参数
         pb.setCurrentPage(currentPage);
         pb.setRows(rows);

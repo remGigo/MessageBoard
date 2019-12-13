@@ -24,6 +24,12 @@ public class UserServiceImpl implements UserService {
         return dao.findUserByUsernameAndPassword(user.getUsername(),user.getPassword());
     }
 
+    @Override
+    public void register(User registerUser) {
+        dao.addUser(registerUser);
+    }
+
+    //hhh下面都废了吧
 //    @Override
 //    public void addUser(Message message) {
 //        dao.add(message);

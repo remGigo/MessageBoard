@@ -25,6 +25,8 @@ public interface UserService {
      */
     User login(User user);
 
+    void register(User registerUser);
+
     /**
      * 保存User
      * @param user

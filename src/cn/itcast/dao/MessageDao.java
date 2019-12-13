@@ -12,9 +12,6 @@ public interface MessageDao {
 
     void add(Message message);
 
-//    void delete(int id);
-
-
     /**
      * 查询总记录数
      * @return

@@ -28,7 +28,7 @@
 
 <body>
 <div class="container" style="width: 400px;">
-    <h3 style="text-align: center;">管理员登录</h3>
+    <h3 style="text-align: center;">登录</h3>
 
     <form action="${pageContext.request.contextPath}/loginServlet" method="post">
         <div class="form-group">
@@ -50,9 +50,13 @@
             </a>
         </div>
         <hr/>
-        <div class="form-group" style="text-align: center;">
+        <div class="form-inline" style="text-align: center;">
             <input class="btn btn btn-primary" type="submit" value="登录">
+<%--            <input class="btn btn btn-primary" type="submit" value="注册">--%>
+<%--            <a href="${pageContext.request.contextPath}/registerServlet">注册一个新账号</a>--%>
+            <a href="register.jsp"> 注册一个新账号鸭 </a>
         </div>
+
     </form>
 
     <!-- 出错显示的信息框 -->

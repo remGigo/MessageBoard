@@ -3,7 +3,7 @@ package cn.itcast.domain;
 public class MessageToShow {
     private String username;
     private String message;
-
+    private int id;           //忘了考虑删除功能了吧,没事能从Message到MessageToShow已经很棒了
     @Override
     public String toString() {
         return "MessageToShow{" +
@@ -21,7 +21,7 @@ public class MessageToShow {
         this.id = id;
     }
 
-    private int id;           //忘了考虑删除功能了吧,没事能从Message到MessageToShow已经很棒了
+
 
     public String getUsername() {
         return username;
