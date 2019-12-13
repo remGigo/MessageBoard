@@ -1,2 +1,0 @@
-# MessageBoard
-JavaWeb_Project
