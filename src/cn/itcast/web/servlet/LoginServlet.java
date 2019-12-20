@@ -32,8 +32,7 @@ public class LoginServlet extends HttpServlet {
 
         String checkcode_server = (String) session.getAttribute("CHECKCODE_SERVER");
         session.removeAttribute("CHECKCODE_SERVER");//确保验证码一次性
-        if(checkcode_server!=null && !checkcode_server.equalsIgnoreCase(verifycode)){
-            //验证码不正确
+        if(checkcode_server!=null && !checkcode_server.equalsIgnoreCase(verifycode)){    //验证码不正确
             //提示信息
             request.setAttribute("login_msg","验证码错误！");
             //跳转登录页面
@@ -42,10 +41,10 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
-
-        //来了老弟
+        //验证码通过，开始检查用户名密码！
+        //4.封装User的JavaBean对象
         Map<String, String[]> map = request.getParameterMap();
-        //4.封装User对象
+
         User user = new User();
         try {
             BeanUtils.populate(user,map);
@@ -61,20 +60,18 @@ public class LoginServlet extends HttpServlet {
         User loginUser = service.login(user);
 
         //6.判断是否登录成功
-        if(loginUser != null){
-            //登录成功
-            //将用户存入session
+        if(loginUser != null){     //登录成功
+
+            //将用户存入session，太重要了以后很多地方都要用
             session.setAttribute("user",loginUser);
 
             //跳转页面
             response.sendRedirect(request.getContextPath()+"/index.jsp");
-        }else{
-            //登录失败
+        }else{         //登录失败
             //提示信息
             request.setAttribute("login_msg","用户名或密码错误！");
             //跳转登录页面
             request.getRequestDispatcher("/login.jsp").forward(request,response);
-
         }
 
 

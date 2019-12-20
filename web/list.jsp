@@ -1,4 +1,4 @@
-<%@ page import="java.sql.SQLOutput" %><%--<jsp:useBean id="condition" scope="request" type="javax.xml.stream.util.StreamReaderDelegate"/>--%>
+<%--<jsp:useBean id="condition" scope="request" type="javax.xml.stream.util.StreamReaderDelegate"/>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

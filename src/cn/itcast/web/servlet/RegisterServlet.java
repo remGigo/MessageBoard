@@ -31,7 +31,6 @@ public class RegisterServlet extends HttpServlet {
         UserService service = new UserServiceImpl();
         service.register(registerUser);
 
-
         request.getRequestDispatcher("/login.jsp").forward(request,response);
 
     }

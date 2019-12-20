@@ -25,7 +25,7 @@ public class AddMessageServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         //2.获取参数
         Map<String, String[]> map = request.getParameterMap();
-        //3.封装对象
+        //3.封装对象，其实这步只得到了一个message的属性
         Message message = new Message();
         try {
             BeanUtils.populate(message,map);
@@ -35,26 +35,22 @@ public class AddMessageServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        //添加留言功能也没那么简单
+        //其他的message的属性(user_id)需要借助域对象session中获取
         HttpSession session = request.getSession();
 
-//        String username = session.getAttribute("user").username; 这真没办法 必须分开写
-
-        User user = (User)session.getAttribute("user"); //这两句真的考javaSE基本功
+        User user = (User)session.getAttribute("user"); //这个user当然是当前已登录用户的啦
         String username = user.getUsername();
 
-        //还要再写个service把username对应的user_id查出来
+        //还要再调用个service把username对应的user_id查出来
         MessageServiceImpl nameToIdService = new MessageServiceImpl();
         int id = nameToIdService.nameToId(username);
         message.setUser_id(id); //只有清楚了populate方法的功能才能写出这样一句代码
-
 
         //4.调用Service保存
         MessageService service = new MessageServiceImpl();
         service.addMessage(message);
 
-        //5.跳转到userListServlet   哥！你这不是坑我呢？
-//        response.sendRedirect(request.getContextPath()+"/userListServlet");
+        //5.跳转到userListServlet
         response.sendRedirect(request.getContextPath()+"/findMessageByPageServlet");
     }
 
