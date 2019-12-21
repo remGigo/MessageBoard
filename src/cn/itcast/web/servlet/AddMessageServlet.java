@@ -3,9 +3,7 @@ package cn.itcast.web.servlet;
 import cn.itcast.domain.Message;
 import cn.itcast.domain.User;
 import cn.itcast.service.MessageService;
-import cn.itcast.service.UserService;
 import cn.itcast.service.impl.MessageServiceImpl;
-import cn.itcast.service.impl.UserServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;

@@ -1,8 +1,6 @@
 package cn.itcast.web.servlet;
 
-import cn.itcast.service.UserService;
 import cn.itcast.service.impl.MessageServiceImpl;
-import cn.itcast.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

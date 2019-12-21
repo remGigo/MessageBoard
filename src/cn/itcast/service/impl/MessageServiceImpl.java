@@ -63,10 +63,6 @@ public class MessageServiceImpl implements MessageService {
         int totalPage = (totalCount % rows)  == 0 ? totalCount/rows : (totalCount/rows) + 1;
         pb.setTotalPage(totalPage);
 
-        //要查user表找username！ 思路根本不对
-//        List<String> userName = dao.findByPage_user(start,rows);
-//        pb.setUserNameList(userName);
-
         return pb;
     }
 
