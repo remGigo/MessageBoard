@@ -11,3 +11,5 @@
 2. 保留其前端框架，新建数据库并重写项目逻辑。实现功能：用户登录，分页显示留言，写留言，删除留言
 3. 对项目逻辑进行完善和扩展：添加用户注册功能
 4. 不完善功能：登录用户可以随意删除任意留言，这是不合理的
+
+![image](https://github.com/remGigo/MessageBoard/blob/master/images/8CFB7BC27B1437F2FBB79E83F66CE019.png)
